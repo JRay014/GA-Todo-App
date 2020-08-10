@@ -26,5 +26,8 @@ app.use('*', (req, res) => {
 
 app.use((err, req, res, next) => {
     console.log(err);
-    res.status(500).send({err, message: err.message});
+    res.status(error.status || 500).json({
+        message: err.message,
+        stack: err.stack,
+    });
 });
