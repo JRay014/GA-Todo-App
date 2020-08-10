@@ -4,9 +4,9 @@ const todoController = {};
 
 todoController.index = (req, res, next) => {
     tdRoute.getAll()
-        .then((todo) => { 
+        .then((todos) => { 
             res.render('todo-pages/index', {
-                data: {todo}
+                data: {todos}
             });
         })
     .catch(next);
